@@ -1,6 +1,4 @@
-//import pokData from '../../data/pokemon.js';
 import fetchPokemon from './fetchPokemon.js';
-
 
 export const getAllPokemon = async (req, res) => {
     const pokemon = await fetchPokemon();
@@ -8,7 +6,6 @@ export const getAllPokemon = async (req, res) => {
 } 
 
 export const getOnePokemon = async (req, res) => {
-
     const id = parseInt(req.params.id, 10);
     const pokemon = await fetchPokemon();
     const result = pokemon.find(p => p.id === id);
@@ -23,7 +20,6 @@ export const getOneInfo = async (req, res) => {
     const result = pokemon.find(p => p.id === id);
     if(result){
         const reqInfo = result[info];
-        
         if(reqInfo) {
              return res.status(200).json(reqInfo)
         } else {

@@ -1,12 +1,11 @@
 import axios from "axios";
 
 const fetchPokemon = async() => {
-  const url = `https://pokeapi.co/api/v2/pokemon/?limit=1`;
+  const url = `https://pokeapi.co/api/v2/pokemon/?limit=1302`;
   try {
       const result = await axios.get(url);
       const newData = result.data.results;
       const urls = newData?.map((p) => (p.url));
-      
       const promises = urls.map((url)=> axios.get(url));
       const responses = await Promise.all(promises);
       const finalData = responses.map((res) => res.data);
