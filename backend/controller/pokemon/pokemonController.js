@@ -1,23 +1,28 @@
+//import pokData from '../../data/pokemon.js';
+import fetchPokemon from './fetchPokemon.js';
 
-import pokData from '../../data/pokemon.js';
 
-export const getAllPokemon = (req, res) => {
-    res.status(200).json(pokData);
-}
+export const getAllPokemon = async (req, res) => {
+    const pokemon = await fetchPokemon();
+    res.status(200).json(pokemon);
+} 
 
-export const getOnePokemon = (req, res) => {
+export const getOnePokemon = async (req, res) => {
+
     const id = parseInt(req.params.id, 10);
-    const pokemon = pokData.find(p => p.id === id);
-    pokemon ? res.json(pokemon) : 
+    const pokemon = await fetchPokemon();
+    const result = pokemon.find(p => p.id === id);
+    result ? res.json(result) : 
     res.status(404).json({ message: 'Pokemon Not Found...‼️' });
 };
 
-export const getOneInfo = (req, res) => {
+export const getOneInfo = async (req, res) => {
     const id = parseInt(req.params.id, 10);
     const {info} = req.params;
-    const pokemon = pokData.find(p => p.id === id);
-    if(pokemon){
-        const reqInfo = pokemon[info];
+    const pokemon = await fetchPokemon();
+    const result = pokemon.find(p => p.id === id);
+    if(result){
+        const reqInfo = result[info];
         
         if(reqInfo) {
              return res.status(200).json(reqInfo)

@@ -15,6 +15,7 @@ const app = express();
 app.use(cors({origin: "*"}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(`/api/v1/pokemon`, router);
 
 app.get(`/`, async (req, res) => {
