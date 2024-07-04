@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const fetchPokemon = async() => {
+const fetchPokemon = async(req, res) => {
   const url = `https://pokeapi.co/api/v2/pokemon/?limit=1302`;
   try {
       const result = await axios.get(url);
@@ -26,7 +26,7 @@ const fetchPokemon = async() => {
             },
           image: p.sprites.other.dream_world.front_default,
       }));
-     return specificData      
+     return specificData;    
   } catch (error) {
     res.status(500).json({Message: `Error Fetching the data from pokemon API : ${error.message}`});
   }
