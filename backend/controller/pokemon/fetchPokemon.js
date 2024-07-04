@@ -15,16 +15,17 @@ const fetchPokemon = async(req, res) => {
           name: p.name,
           height: p.height,
           weight: p.weight, 
+          image: p.sprites.other.dream_world.front_default,
           types: p.types.map(typeInfo => typeInfo.type.name),
           base: {
               "HP": p.stats.find(stat => stat.stat.name === "hp").base_stat,
               "Attack": p.stats.find(stat => stat.stat.name === "attack").base_stat,
               "Defense": p.stats.find(stat => stat.stat.name === "defense").base_stat,
-              "Sp. Attack": p.stats.find(stat => stat.stat.name === "special-attack").base_stat,
-              "Sp. Defense": p.stats.find(stat => stat.stat.name === "special-defense").base_stat,
+              "Special Attack": p.stats.find(stat => stat.stat.name === "special-attack").base_stat,
+              "Special Defense": p.stats.find(stat => stat.stat.name === "special-defense").base_stat,
               "Speed": p.stats.find(stat => stat.stat.name === "speed").base_stat
-            },
-          image: p.sprites.other.dream_world.front_default,
+            }
+          
       }));
      return specificData;    
   } catch (error) {
