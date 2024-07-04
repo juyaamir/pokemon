@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const fetchPokemon = async(req, res) => {
-  const url = `https://pokeapi.co/api/v2/pokemon/?limit=1302`;
+const fetchPokemon = async() => {
+  const url = `https://pokeapi.co/api/v2/pokemon/?limit=200`;
   try {
       const result = await axios.get(url);
       const newData = result.data.results;
@@ -29,7 +29,7 @@ const fetchPokemon = async(req, res) => {
       }));
      return specificData;    
   } catch (error) {
-    res.status(500).json({Message: `Error Fetching the data from pokemon API : ${error.message}`});
+    console.log(`Error Fetching the data from pokemon API : ${error.message}`);
   }
 }
 
