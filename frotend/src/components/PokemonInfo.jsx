@@ -2,7 +2,9 @@ import React from 'react'
 
 const PokemonInfo = () => {
   return (
-    <div>PokemonInfo</div>
+    <div>
+
+    </div>
   )
 }
 

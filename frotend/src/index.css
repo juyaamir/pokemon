@@ -5,3 +5,35 @@
 .Sofia {
     font-family: 'Sofia';
 }
+.Felipa {
+    font-family: 'Felipa';
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container:hover .select-me {
+    visibility: visible;
+}
+
+
+.animation {
+    
+    background-color: orange;
+    animation-duration: 1s;
+    animation-name: background-color;
+    animation-iteration-count: infinite;
+    width:300px;
+    text-align: center;
+}
+@keyframes background-color {
+    0% {background-color:orange;}
+    25% {background-color: yellow;}
+    50% {background-color: rgb(127, 239, 86);}
+    75% {background-color: rgb(244, 98, 188);}
+    100% {background-color: rgb(255, 5, 5);}
+}
